@@ -1,24 +1,27 @@
 import React, { use, useState, useRef} from 'react'
 import { checkValidData } from './utils/validate'
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import { UserAuth } from '../contect/AuthContext';
 
-const Login = () => {
 
-  // const[errorMessage, setErrorMessage] = useState(false)
+const CreateAccount = () => {
 
+  const { session } = UserAuth()
+
+  const name = useRef(null);
   const email = useRef(null);
   const password = useRef(null);
 
-  // // function handleSubmit(e) {
-  // //   e.preventDefault() 
+  // function handleSubmit(e) {
+  //   e.preventDefault()
   
-  // //     name.current.value,
-  // //     email.current.value,
-  // //     password.current.value
+  //     name.current.value,
+  //     email.current.value,
+  //     password.current.value
       
-  // //   console.log(name.current.value);
+  //   console.log(name.current.value);
 
-  // // }
+  // }
 
   // function toogleForm(e) {
   //   e.preventDefault()
@@ -38,7 +41,7 @@ const Login = () => {
           
           <h1 
           className='pl-3 text-3xl mb-3'>
-            Sign in
+            Sign up
           </h1>
 
           <span 
@@ -53,36 +56,37 @@ const Login = () => {
             <input 
             type="text" 
             className='border rounded p-2 w-[95%]' 
+            placeholder="Full Name"
+            ref={name}/>
+          
+
+            <input 
+            type="text" 
+            className='border rounded p-2 w-[95%]' 
             placeholder="Email"
             ref={email}/>
             
             <input 
             type="password" 
             className='border rounded p-2 w-[95%]' 
-            placeholder= "Password"
+            placeholder='Set Password' 
             ref={password}/>
-
-            <div 
-            className='pt-2 text-blue-300 hover:cursor-pointer'
-            onClick={()=> alert("Try to remember maybe")}>
-              Forgot email / password?
-            </div>
 
            {/* <p className='text-red-500 mt-2'>
               {errorMessage}
             </p> */}
 
             <div className='mt-5 flex justify-end pr-5 gap-5 '>
-              <Link to="/createaccount"><button 
+              <Link to="/login"><button 
               className='text-blue-300 p-2 rounded-3xl px-7 hover:cursor-pointer'
               onClick="">
-                Create Account
+                Login Instead
               </button></Link>
 
               <button 
               className='bg-blue-300 text-black p-2 rounded-3xl px-7 hover:cursor-pointer'
               onClick="">
-                Login
+                Create
               </button>
             </div>
           </form>
@@ -92,4 +96,4 @@ const Login = () => {
   )
 }
 
-export default Login
+export default CreateAccount

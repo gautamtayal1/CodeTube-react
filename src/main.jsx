@@ -7,6 +7,9 @@ import LeftBar from './components/LeftBar.jsx'
 import HomeMain from './components/HomeMain.jsx'
 import SearchMain from './components/SearchMain.jsx'
 import Login from './components/Login.jsx'
+import CreateAccount from './components/CreateAccount.jsx'
+import { AuthContextProvider } from './contect/AuthContext.jsx'
+import HomePage from './components/HomePage.jsx'
 
 const router = createBrowserRouter([
   {
@@ -14,11 +17,11 @@ const router = createBrowserRouter([
     element: <App />,
     children: [{
       path: "/",
-      element: <><LeftBar /><HomeMain /></>
+      element: <HomePage />
     },
     {
       path: "/home",
-      element: <><LeftBar /><HomeMain /></>
+      element: <HomePage />
     },
     {
       path: "/search",
@@ -28,11 +31,15 @@ const router = createBrowserRouter([
   {
     path: "/login",
     element: <Login />
-  }
+  },
+  {
+    path: "/createaccount",
+    element: <CreateAccount />
+  },
 ])
 
 createRoot(document.getElementById('root')).render(
-  <StrictMode>
+  <AuthContextProvider>
     <RouterProvider router={router} />
-  </StrictMode>,
+  </AuthContextProvider>
 )
