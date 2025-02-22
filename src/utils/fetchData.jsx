@@ -27,9 +27,7 @@ export function FetchHomeData() {
 
 export function FetchSearchData() {
 
-  const API_KEY_3 = import.meta.env.VITE_API_KEY_3;
-  console.log(API_KEY_3)
-  
+  const API_KEY_1 = import.meta.env.VITE_API_KEY_1; 
 
   const [searchData, setSearchData] = useState([])
   const [searchParams] = useSearchParams()
@@ -38,7 +36,7 @@ export function FetchSearchData() {
 
   useEffect(() => {
     async function fetchData() {
-      const data = await fetch (`https://www.googleapis.com/youtube/v3/search?key=${API_KEY_3}&type=video&q=${query}&part=snippet&maxResults=50&order=relevance&videoDuration=medium`)
+      const data = await fetch (`https://www.googleapis.com/youtube/v3/search?key=${API_KEY_1}&type=video&q=${query}&part=snippet&maxResults=50&order=relevance&videoDuration=medium`)
 
       if(!data.ok) {
         throw new Error("search data - unable to fetch")
@@ -49,33 +47,35 @@ export function FetchSearchData() {
       setSearchData(json.items)
       
     }
-    // fetchData()
+    fetchData()
   }, [query])
 
   return { searchData }
 }
 
 
-export function FetchRelatedData({videoId}) {
+export function FetchRelatedData() {
 
   const API_KEY_1 = import.meta.env.VITE_API_KEY_1;
+  const [searchParams] = useSearchParams()
+  const videoId = searchParams.get("v")
 
   const [relatedData, setRelatedData] = useState([])
 
   useEffect(() => {
     async function fetchData() {
-      const data = fetch (`https://www.googleapis.com/youtube/v3/search?key=${API_KEY_1}&type=videorelatedToVideoId=${videoId}&part=snippet&maxResults=10`)
+      const data = await fetch (`https://www.googleapis.com/youtube/v3/search?key=${API_KEY_1}&type=videorelatedToVideoId=${videoId}&part=snippet&maxResults=50`)
 
       if(!data.ok) {
         throw new Error("related data - unable to fetch")
       }
 
-      const json = data.json()
+      const json = await data.json()
       setRelatedData(json.items)
       console.log(relatedData)
     }
-    // fetchData()
-  }, [])
+    fetchData()
+  }, [videoId])
 
   return { relatedData }
 }

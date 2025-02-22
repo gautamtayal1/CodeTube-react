@@ -8,7 +8,7 @@ const VideoDescription = () => {
     return <div>Loading...</div>}
 
   return (
-    <div className='h-auto min-h-[100vh] bg-[#262626] rounded-2xl mt-5 p-3 mx-3  text-[12px]'>
+    <div className='h-auto bg-[#262626] rounded-2xl mt-5 p-3 mx-3  text-[12px]'>
       <div>
         {videoData[0]?.statistics?.viewCount} views&nbsp;&nbsp; 19 Feb 2025
       </div>
