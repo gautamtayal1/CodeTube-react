@@ -11,6 +11,7 @@ import CreateAccount from './components/CreateAccount.jsx'
 // import { AuthContextProvider } from './contect/AuthContext.jsx'
 import HomePage from './components/HomePage.jsx'
 import SearchPage from './components/SearchPage.jsx'
+import VideoPage from './components/VideoPage.jsx'
 
 const router = createBrowserRouter([
   {
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
     {
       path: "/search",
       element: <SearchPage />
+    },
+    {
+      path: "/videopage",
+      element: <VideoPage />
     },
   ]},
   {
