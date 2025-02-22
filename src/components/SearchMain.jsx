@@ -1,56 +1,32 @@
-import React from 'react'
+import { Link } from "react-router-dom"
+import {FetchSearchData} from "../utils/fetchData"
 
 const SearchMain = () => {
+
+  const {searchData} = FetchSearchData()
+  if(!searchData) {
+    return <div>Loading...</div>
+  }
+  console.log(searchData)
+ 
   return (
-    <div>
-      <div className="card w-auto h-[40vh] flex mt-2">
-        <div className="img w-[35vw]">
-          <img src="https://i.ytimg.com/vi/ihcE3aLoAEo/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLALvWsSSemY1y7D4pVr5YF7WZGNmw" alt=""
-          className='rounded-2xl' />
+    <div className="p-3">
+      {searchData.map((data) => (
+          <div className="card w-auto h-[37vh] flex mb-5" key={data.id.videoId}>
+          <div className="img w-[35vw] h-10 aspect-video">
+            <img src={data?.snippet?.thumbnails?.high?.url} alt=""
+            className='rounded-2xl h-[35vh] w-[45vw] object-cover ' />
+          </div>
+          <div className="info ml-4">
+            <div className=''>{searchData[0].snippet.title}</div>
+            <div className="font-light text-[14px]">15K views • 2 days ago</div>
+            <div className="font-light text-[14px] my-3">{data?.snippet?.channelTitle}</div>
+            <div className='font-light text-[14px]'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestiae, molestias. lorem20</div>
+          </div>
         </div>
-        <div className="info ml-4">
-          <div className='text-2xl'>A fast pace resume clone guide</div>
-          <div className="font-light text-[14px]">15K views • 2 days ago</div>
-          <div className="font-light text-[14px] my-3">Chai aur Code</div>
-          <div className='font-light text-[14px]'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestiae, molestias.</div>
-        </div>
-      </div>
-      <div className="card w-auto h-[40vh] flex mt-2">
-        <div className="img w-[35vw]">
-          <img src="https://i.ytimg.com/vi/ihcE3aLoAEo/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLALvWsSSemY1y7D4pVr5YF7WZGNmw" alt=""
-          className='rounded-2xl' />
-        </div>
-        <div className="info ml-4">
-          <div className='text-2xl'>A fast pace resume clone guide</div>
-          <div className="font-light text-[14px]">15K views • 2 days ago</div>
-          <div className="font-light text-[14px] my-3">Chai aur Code</div>
-          <div className='font-light text-[14px]'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestiae, molestias.</div>
-        </div>
-      </div>
-      <div className="card w-auto h-[40vh] flex mt-2">
-        <div className="img w-[35vw]">
-          <img src="https://i.ytimg.com/vi/ihcE3aLoAEo/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLALvWsSSemY1y7D4pVr5YF7WZGNmw" alt=""
-          className='rounded-2xl' />
-        </div>
-        <div className="info ml-4">
-          <div className='text-2xl'>A fast pace resume clone guide</div>
-          <div className="font-light text-[14px]">15K views • 2 days ago</div>
-          <div className="font-light text-[14px] my-3">Chai aur Code</div>
-          <div className='font-light text-[14px]'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestiae, molestias.</div>
-        </div>
-      </div>
-      <div className="card w-auto h-[40vh] flex mt-2">
-        <div className="img w-[35vw]">
-          <img src="https://i.ytimg.com/vi/ihcE3aLoAEo/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLALvWsSSemY1y7D4pVr5YF7WZGNmw" alt=""
-          className='rounded-2xl' />
-        </div>
-        <div className="info ml-4">
-          <div className='text-2xl'>A fast pace resume clone guide</div>
-          <div className="font-light text-[14px]">15K views • 2 days ago</div>
-          <div className="font-light text-[14px] my-3">Chai aur Code</div>
-          <div className='font-light text-[14px]'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestiae, molestias.</div>
-        </div>
-      </div>
+      ))}
+      
+      
     </div>
   )
 }

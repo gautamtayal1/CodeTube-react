@@ -3,15 +3,13 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
-import LeftBar from './components/LeftBar.jsx'
-import HomeMain from './components/HomeMain.jsx'
-import SearchMain from './components/SearchMain.jsx'
 import Login from './components/Login.jsx'
 import CreateAccount from './components/CreateAccount.jsx'
 // import { AuthContextProvider } from './contect/AuthContext.jsx'
 import HomePage from './components/HomePage.jsx'
 import SearchPage from './components/SearchPage.jsx'
 import VideoPage from './components/VideoPage.jsx'
+import SearchContext from './context/searchContext.jsx'
 
 const router = createBrowserRouter([
   {
@@ -45,7 +43,7 @@ const router = createBrowserRouter([
 ])
 
 createRoot(document.getElementById('root')).render(
-  <StrictMode>
+  <SearchContext>
     <RouterProvider router={router} />
-  </StrictMode>
+  </SearchContext>
 )

@@ -1,4 +1,4 @@
-import React from 'react'
+
 import VideoPlayer from './VideoPlayer'
 import VideoDetails from './VideoDetails'
 import VideoDescription from './VideoDescription'
