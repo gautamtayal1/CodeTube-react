@@ -1,7 +1,7 @@
 import React, { use, useState, useRef} from 'react'
 import { checkValidData } from './utils/validate'
 import { Link } from 'react-router-dom';
-import { UserAuth } from '../contect/AuthContext';
+// import { UserAuth } from '../contect/AuthContext';
 
 
 const CreateAccount = () => {

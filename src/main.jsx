@@ -8,7 +8,7 @@ import HomeMain from './components/HomeMain.jsx'
 import SearchMain from './components/SearchMain.jsx'
 import Login from './components/Login.jsx'
 import CreateAccount from './components/CreateAccount.jsx'
-import { AuthContextProvider } from './contect/AuthContext.jsx'
+// import { AuthContextProvider } from './contect/AuthContext.jsx'
 import HomePage from './components/HomePage.jsx'
 
 const router = createBrowserRouter([
@@ -39,7 +39,7 @@ const router = createBrowserRouter([
 ])
 
 createRoot(document.getElementById('root')).render(
-  <AuthContextProvider>
+  <StrictMode>
     <RouterProvider router={router} />
-  </AuthContextProvider>
+  </StrictMode>
 )

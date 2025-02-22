@@ -2,7 +2,7 @@ import React from 'react'
 
 const LeftBar = () => {
   return (
-    <div className='min-h-[90vh] h-auto w-[31vh]  p-2'>
+    <div className='min-h-[90vh] h-auto w-[31vh]  p-2 '>
       <div className="sec1">
         <div className=" flex justify-start items-center gap-5 hover:bg-[#272727] rounded-2xl p-2">
           <i className="fa-solid fa-house text-[120%]"></i>
