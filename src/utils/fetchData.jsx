@@ -4,13 +4,12 @@ import { useSearchParams } from "react-router-dom";
 
 export function FetchHomeData() {
 
-  const API_KEY_2 = import.meta.env.VITE_API_KEY_2;
-  console.log(API_KEY_2)
+  const API_KEY_1 = import.meta.env.VITE_API_KEY_1;
   const [homeData, setHomeData] = useState([])
 
   useEffect(() => {
     async function fetchData() {
-      const response = await fetch(`https://www.googleapis.com/youtube/v3/search?key=${API_KEY_2}&type=video&q=${encodeURIComponent("coding programming tutorial software development")}&part=snippet&maxResults=50&order=viewCount&regionCode=US&videoDuration=medium`);
+      const response = await fetch(`https://www.googleapis.com/youtube/v3/search?key=${API_KEY_1}&type=video&q=${encodeURIComponent("coding programming tutorial software development")}&part=snippet&maxResults=50&order=viewCount&regionCode=US&videoDuration=medium`);
       
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
@@ -59,7 +58,7 @@ export function FetchSearchData() {
 
 export function FetchRelatedData({videoId}) {
 
-  const API_KEY_1 = import.meta.env.API_KEY_1;
+  const API_KEY_1 = import.meta.env.VITE_API_KEY_1;
 
   const [relatedData, setRelatedData] = useState([])
 
@@ -79,4 +78,33 @@ export function FetchRelatedData({videoId}) {
   }, [])
 
   return { relatedData }
+}
+
+
+export function FetchVideoData() {
+
+  const [searchParams] = useSearchParams()
+  const videoId = searchParams.get("v")
+
+  const API_KEY_1 = import.meta.env.VITE_API_KEY_1;
+
+  const [videoData, setVideoData] = useState([])
+
+  useEffect(() => {
+    async function fetchData() {
+      const data = await fetch (`https://www.googleapis.com/youtube/v3/videos?key=${API_KEY_1}&id=${videoId}&part=snippet,statistics,contentDetails`)
+
+      if(!data.ok) {
+        throw new Error("video data - unable to fetch")
+      }
+
+      const json = await data.json()
+      console.log(videoData)
+      setVideoData(json.items)
+      
+    }
+    fetchData()
+  }, [videoId])
+
+  return { videoData }
 }
