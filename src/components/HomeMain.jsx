@@ -10,10 +10,10 @@ const HomeMain = () => {
 
   return (
     <div className='py-3'>
-      <Link to = "/videopage">
       <div className="container flex w-[80vw] gap-5 flex-wrap">
       {homeData.map((data) => (
-        <div className="videoContainer h-[50%] w-[32%] hover:cursor-pointer" key={data.id.videoId}>
+        <Link to = {`/watch?v=${data.id.videoId}`} className="videoContainer h-[50%] w-[32%] hover:cursor-pointer" key={data.id.videoId}>
+        
           <div className=' aspect-video rounded-2xl mb-2'>
             <img 
             src={data?.snippet?.thumbnails?.high?.url}
@@ -24,10 +24,11 @@ const HomeMain = () => {
             <p className='font-light text-gray-400'>{data?.snippet?.channelTitle}</p>
             <p className='font-light text-gray-400'>225K views • 1 year ago</p>
           </div>
-        </div>
+        
+        </Link>
       ))}
       </div>
-      </Link>
+      
       
     </div>
   )

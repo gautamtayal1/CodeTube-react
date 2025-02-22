@@ -19,7 +19,7 @@ export function FetchHomeData() {
       setHomeData(json.items)
       console.log(homeData);
     }
-    // fetchData()
+    fetchData()
   }, [])
 
   return { homeData }
@@ -50,7 +50,7 @@ export function FetchSearchData() {
       setSearchData(json.items)
       
     }
-    fetchData()
+    // fetchData()
   }, [query])
 
   return { searchData }

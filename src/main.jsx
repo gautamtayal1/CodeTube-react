@@ -28,7 +28,7 @@ const router = createBrowserRouter([
       element: <SearchPage />
     },
     {
-      path: "/videopage",
+      path: "/watch",
       element: <VideoPage />
     },
   ]},

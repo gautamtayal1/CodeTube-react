@@ -6,7 +6,7 @@ import RightBar from './RightBar'
 
 const VideoPage = () => {
   return (
-    <div className='flex p-1'>
+    <div className='flex px-4'>
       <div className='left w-[70vw]'>
         <VideoPlayer />
         <VideoDetails />

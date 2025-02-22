@@ -1,7 +1,7 @@
 
 const VideoDetails = () => {
   return (
-    <div>
+    <div className="px-4">
       <h1 className='font-bold text-[20px]'>A fast paced JavaScript LIVE course with projects</h1>
       <div className="flex justify-between">
         <div className="left flex gap-5 mt-2">

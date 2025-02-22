@@ -1,7 +1,6 @@
-
 const VideoDescription = () => {
   return (
-    <div className='h-[100vh] bg-[#262626] rounded-2xl mt-5 p-3'>
+    <div className='h-[100vh] bg-[#262626] rounded-2xl mt-5 p-3 mx-3'>
       <div>
         15,000 views&nbsp;&nbsp; 19 Feb 2025
       </div>
