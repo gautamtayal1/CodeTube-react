@@ -1,5 +1,5 @@
 import React from 'react'
-import FetchData from './utils/fetchData'
+import FetchData from '../utils/fetchData'
 
 const HomeMain = () => {
 

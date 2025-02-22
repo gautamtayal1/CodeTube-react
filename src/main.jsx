@@ -10,6 +10,7 @@ import Login from './components/Login.jsx'
 import CreateAccount from './components/CreateAccount.jsx'
 // import { AuthContextProvider } from './contect/AuthContext.jsx'
 import HomePage from './components/HomePage.jsx'
+import SearchPage from './components/SearchPage.jsx'
 
 const router = createBrowserRouter([
   {
@@ -25,7 +26,7 @@ const router = createBrowserRouter([
     },
     {
       path: "/search",
-      element: <><LeftBar /><SearchMain /></>
+      element: <SearchPage />
     },
   ]},
   {
