@@ -1,8 +1,11 @@
 import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
+import { toggleMenu } from '../utils/appSlice'
 
 const Navbar = () => {
 
+  //searchbar functions
   const [input, setInput] = useState("")
   const navigate = useNavigate()
 
@@ -12,15 +15,26 @@ const Navbar = () => {
     navigate(`/search?q=${encodeURIComponent(input)}`)
   }
 
+  //togglemenu functions
+  const dispatch = useDispatch()
+  const toggleMenuHandler = () => {
+    dispatch(toggleMenu())
+  }
+
   return (
-    <div className='w-[100vw] h-[10vh] flex justify-between p-2'>
-      <Link to="/home">
-        <div className="left flex justify-start items-center hover:cursor-pointer">
+    <div className='w-[100vw] h-[10vh] flex justify-between items-center p-2'>
+      <div className="left flex justify-start items-center hover:cursor-pointer gap-2">
+       <i 
+       className="fa-solid fa-bars p-3 hover:cursor-pointer"
+       onClick={() => toggleMenuHandler()}
+       ></i>
+       <Link to="/home">
           <img 
-          className='h-[10vh] w-[10vw] '
+          className='h-[8vh] w-[8vw] '
           src="https://static.digit.in/default/new-youtube-premium-features-1280-6d58ec9cf9.png" alt="" />
-        </div>
+        
       </Link>
+      </div>
 
       <form onSubmit={handleSubmit}>
         <div className="center border-1 w-[40vw] rounded-4xl flex justify-between items-center px-5 my-2">

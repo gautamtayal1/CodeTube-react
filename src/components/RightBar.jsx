@@ -13,7 +13,7 @@ const RightBar = () => {
     <div >
       
       {relatedData.map((data) => (
-        <Link to="/watch " className="card w-[30vw] flex mt-2" key={data.id.videoId}>
+        <Link to={`/watch?v=${data.id.playlistId}`} className="card w-[30vw] flex mt-2" key={data.id.videoId}>
           
             <div className="img">
               <img src={data.snippet?.thumbnails?.default.url} alt=""
